@@ -16,10 +16,11 @@ epc2days <- epcData[tf,]
 rm(epcData)
 rm(tf)
 
-# Plot 1
-plotData <- as.double(as.character(epc2days$Global_active_power))
-hist(plotData, main = "Global Active Power", xlab = "Global Active Power (kilowatts)",
-     col = "red")
-fileNamePng <- "plot1.png";
+# Plot 2
+gapData <- as.double(as.character(epc2days$Global_active_power))
+timeData <- dmy_hms(paste(as.character(epc2days$Date), " ", as.character(epc2days$Time)))
+plot(timeData, gapData, main = "", , ylab = "Global Active Power (kilowatts)", 
+     xlab = "", type = "l")
+fileNamePng <- "plot2.png";
 dev.copy(png, filename = fileNamePng);
 dev.off ();
